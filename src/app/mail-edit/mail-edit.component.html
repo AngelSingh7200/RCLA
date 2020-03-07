@@ -1,0 +1,112 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://select2.github.io/dist/css/select2.min.css" rel="stylesheet">
+<script src="https://select2.github.io/dist/js/select2.full.js"></script>
+<div class="container" style="margin-top:30px;margin-left: 15px;">
+<div class="row inbox">
+   
+	<div class="col-md-3" style="width: 45%;">  
+        <p class="text-center">New Message</p>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="to" class="col-sm-1 control-label">FROM </label>
+                <div class="col-sm-11" >
+                  <label style="font-size:12px;margin-top: 1%;margin-left: 35px;font-size: medium;" >fridayegift1215@gmail.com</label>
+                      <!-- <input type="email" style="margin-left: 8%;"class="form-control select2-offscreen" placeholder="Type from" tabindex="-1" #from> -->
+                </div>
+              </div>
+            <div class="form-group">
+                <label for="cc" class="col-sm-1 control-label">TO</label>
+                <div class="col-sm-11">
+                  <label style="font-size:12px;margin-top: 1%;margin-left: 30px;font-size: medium" >{{values}}</label> </div>
+                </div>
+              <div class="form-group">
+                <label for="cc" class="col-sm-1 control-label">SUBJECT </label>
+                <div class="col-sm-11">
+                
+                  <input type="text"  style="margin-left: 8%;" #subject class="form-control select2-offscreen" id="cc" placeholder="Type subject" tabindex="-1" name="subject" >
+                     
+                 
+                    </div>
+              </div>
+              <div class="form-group">
+                <label for="cc" class="col-sm-1 control-label">TEXT</label>
+                <div class="col-sm-11">
+                
+                  <input type="text" style="margin-left: 8%;"#text class="form-control select2-offscreen" id="cc" placeholder="Type text" tabindex="-1" name="text" >
+                 
+                 
+                    </div>
+              </div>
+              <!-- <div class="form-group">
+                <label for="cc" class="col-sm-1 control-label">Text:</label>
+                <div class="col-sm-11">
+                      <input type="email" #text class="form-control select2-offscreen" id="cc" placeholder="Type email" tabindex="-1" >
+                </div>
+              </div> -->
+                     
+        </form> 
+        
+			
+      
+        <div class="panel-body message">
+				
+			
+				
+            <div class="col-sm-11 col-sm-offset-1" style="width: 120%; margin-left:-0px;">
+                
+               <h1 [innerHTML]="event.Eventtitle"  name="Eventtitle" #Eventtitle  style="margin-left: 17%;color: midnightblue;"> </h1>
+                <br>	
+                <img [src]="event.avatar" class="mr-3" [alt]="event.name" style="margin-left: 10%;width:70%;height:40%" #avatar>
+               <h2 [innerHTML]="event.EventDescription" #EventDescription style="margin-left: 19%;color:green;" ></h2>
+                <ul>
+                  <li [innerHTML]="event.bodyEvent" style="margin-left: 18%;color:purple;font-size: medium;"></li>
+                </ul>
+                <div class="form-group" style="margin-left: 30% ;">	
+                   
+                    <button type="button" style="width: 30%;height:10%" (click)="Save(to.value,subject.value,text.value,avatar.value)" class="btn btn-primary">Send</button> 
+                </div>
+            
+        </div>
+        </div>	
+    </div>	
+		<!-- starting--> 
+		 <div class="panel panel-default" style="float: right;margin-left: 30px;width: 40%;">
+			<div class="panel-body contacts">
+            <a href="#" class="btn btn-success btn-block"> + Contact</a>
+            <!-- <table *ngFor="let contact of contacts">  
+                  <tr >  
+                      
+                        <input type="checkbox" value=" {{contact.id}}" (change)="onChange(contact.email,$event)">  
+                        {{contact.email}}<br>  
+                        <label style="font-size:13px">{{values}}</label> 
+                        <label style="font-size:18px">({{count}})</label>     
+                  </tr>  </table> -->
+                    
+                  <div class="col-md-9">  <br>
+                   
+                        <label *ngFor="let contact of contacts;" class="form-control">  
+                       
+                          <input type="checkbox" value=" {{contact.id}}" (change)="onChange(contact.email,$event)" #to name="to">  
+                            {{contact.email}}<br>  
+                
+                        </label>  
+                        <br >   <div class="panel panel-default"  *ngIf="count">
+                          <div class="panel-body contacts">    
+                       <div > <label style="font-size:18px">{{count}} Customer Selected</label>  </div>  </div></div>
+                        <label style="font-size:18px;color: red">{{errorMsg}}</label><br>       
+                      </div> 
+			</div>
+		<!-- </div>		 <button type="submit" class="btn btn-success" (click)="addSender(from.value,to.value,subject.value,text.value)">Send</button> -->
+		<!-- contact ending -->
+	</div><!--/.col-->
+	
+	<div class="col-md-9">
+		<!--/.col-->		
+</div>
+</div>

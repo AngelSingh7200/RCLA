@@ -1,0 +1,111 @@
+<form [formGroup]="form" >
+<p>mail-edit works!</p>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://select2.github.io/dist/css/select2.min.css" rel="stylesheet">
+<script src="https://select2.github.io/dist/js/select2.full.js"></script>
+
+
+<div class="container" style="margin-top:30px;margin-left: 15px;">
+
+<div class="row inbox">
+   
+  <div class="col-md-3" style="width: 55%;">  
+    <table class="table table-bordered table-hover" id="tab_logic_total">
+      <tbody>
+        <tr >
+          <th class="text-center">Email</th>
+            <td class="text-center"><input type="text" placeholder='Customer Mail' class="form-control" id="email" formControlName="email" name="email"/></td>
+        </tr>
+        </tbody>
+    </table>
+      <hr> <p class="text-center">{{title}}</p>
+      <table  class="table table-bordered table-hover" id="tab_logic">
+        <thead>
+          <tr>
+            <th class="text-center"> # </th>
+            <th class="text-center"> BillNo </th>
+            <th class="text-center"> Amount </th>
+           
+            <th class="text-center"></th>
+          </tr>
+        </thead>
+
+      </table>
+      <form formArrayName="billing" *ngFor="let billing of form.get('billing').controls; let i=index">
+       
+        <div [formGroupName]="i">
+          <table class="table table-bordered table-hover" id="tab_logic">
+           
+           
+              <tbody>
+  
+                 <tr >
+                
+                  <td >{{i+1}}</td>
+                  <td><input type="text" formControlName="billno" placeholder='Enter Product Name' class="form-control" id="billno" name="billno"></td>
+                  <td><input type="number" formControlName="amount" placeholder='Enter Qty' class="form-control qty" step="0" min="0" name="amount"/></td>
+                 
+          <td> <button (click) = "deleteRow(i)"><i class="fa fa-trash"></i></button></td>
+                </tr>
+                
+              </tbody>
+            
+            </table>
+        </div>
+          </form>
+          <div class="row clearfix">
+            <div class="col-md-12">
+				<button class="btn btn-default pull-left" (click)="addRow()">Add Row</button> 
+				<button class="btn btn-default pull-left" (click)="Save()">Add </button> <br> <br>
+             
+            
+            </div>
+          </div>
+			
+    
+    </div>	
+		<!-- starting--> 
+		 <div class="panel panel-default" style="float: right;margin-left: 30px;width: 40%;">
+			<div class="panel-body contacts">
+                <table class="table table-bordered table-hover" id="tab_logic_total">
+                    <tbody>
+                      <tr >
+                        <th class="text-center">Email</th>
+                          <td class="text-center"></td>
+                      </tr>
+                      <tr>
+                        <th class="text-center">Tax</th>
+                        <td class="text-center"><div class="input-group mb-2 mb-sm-0">
+                            
+                           
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <th class="text-center">Tax Amount</th>
+                        <td class="text-center"></td>
+                      </tr>
+                      <tr>
+                        <th class="text-center">Grand Total</th>
+                        <td class="text-center"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+			
+                  <button class="btn btn-default pull-left" (click)="Save()">Add </button>
+
+
+			</div>
+		</div>		
+		<!-- contact ending -->
+	</div><!--/.col-->
+	
+	<div class="col-md-9">
+		<!--/.col-->		
+</div>
+</div>
+</form>

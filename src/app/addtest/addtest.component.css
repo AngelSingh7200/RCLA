@@ -1,0 +1,47 @@
+.h1-title{
+    text-align: center;
+}
+.main-section{
+    background-color: #f1f1f1;
+    padding: 20px;
+  margin-right: 10%;
+}
+.inputstyle
+{
+    border-radius: 20px;
+    width: 30vh;
+    height: 40px;
+}
+.inputstyle2
+{
+    border-radius: 20px;
+    width: 20vh;
+    height: 30px;
+}
+.card-part{
+    border-radius: 5px;
+    margin:0px;
+    border:1px solid #DDDDDD;
+    background-color: #fff;
+    padding-bottom: 20px;
+}
+.card-title h1{
+    margin:0px;
+    color:#4C4C4C;
+    font-size:23px;
+    padding: 15px 0px 8px 0px;
+}
+.card-description p{
+    min-height:10px; 
+    overflow: hidden;
+    color:#848484;
+    margin:0px;
+    text-align: justify;
+}
+.card-cart a{
+    border-radius:0px;
+    font-size: 11px;
+}
+.card-cart{
+    padding-top: 10px;
+}
